@@ -1,0 +1,71 @@
+﻿@model MVC_StokTakip.Models.Entity.Urunler
+@{
+    ViewBag.Title = "SilBilgiGetir";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>DELETE PRODUCT PAGE</h2>
+
+<div class="container">
+   
+    @using (Html.BeginForm("Sil", "Urunler"))
+    {
+        <h1></h1>
+        <h4>Unregister?</h4>
+        <div class="form-group">
+            @Html.HiddenFor(x => x.ID)
+            <label>Category</label>
+            @Html.DisplayFor(x => x.Kategoriler.Kategori, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <label>Brand</label>
+            @Html.DisplayFor(x => x.Markalar.Marka, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <label>Product Name</label>
+            @Html.DisplayFor(x => x.UrunAdi, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <label>Barcode Number</label>
+            @Html.DisplayFor(x => x.BarkodNo, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <label>Buy Price</label>
+            @Html.DisplayFor(x => x.AlisFiyati, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <label>Sale Price</label>
+            @Html.DisplayFor(x => x.SatisFiyati, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <label>Amount</label>
+            @Html.DisplayFor(x => x.Miktarı, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <label>KDV</label>
+            @Html.DisplayFor(x => x.KDV, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <label>Unit</label>
+            @Html.DisplayFor(x => x.Birimler.Birim, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <label>Date</label>
+            @Html.DisplayFor(x => x.Tarih, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <label>Explanation</label>
+            @Html.DisplayFor(x => x.Aciklama, new { @class = "form-control" })
+        </div>
+
+
+
+
+        <div>
+            <button class="btn btn-danger">Delete Product</button>
+            <a href="/Urunler/Index/">Home Page</a>
+        </div>
+
+    }
+
+</div>

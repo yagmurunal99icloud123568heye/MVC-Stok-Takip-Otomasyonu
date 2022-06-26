@@ -1,0 +1,56 @@
+﻿@model List<MVC_StokTakip.Models.Entity.Urunler>
+
+@{
+    ViewBag.Title = "Urunler";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@ViewBag.viewkategori Products in the Category</h2>
+
+<table class="table table-bordered table-striped">
+    <thead style="background-color:aliceblue">
+        <tr>
+            <td>ID</td>
+
+            <td>Brand</td>
+
+            <td>Product Name</td>
+            <td>Barcode No</td>
+
+            <td>Buying Price</td>
+            <td>Sales Price</td>
+            <td>Amount</td>
+            <td>unit</td>
+            <td>KDV</td>
+            <td>DATE</td>
+            <td>Description</td>
+
+
+        </tr>
+
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <th>@Html.DisplayFor(x => item.ID)</th>
+
+            <td>@Html.DisplayFor(x => item.Markalar.Marka)</td>
+            <td>@Html.DisplayFor(x => item.UrunAdi)</td>
+            <td>@Html.DisplayFor(x => item.BarkodNo)</td>
+            <td>@Html.DisplayFor(x => item.AlisFiyati)</td>
+            <td>@Html.DisplayFor(x => item.SatisFiyati)</td>
+            <td>@Html.DisplayFor(x=>item.Miktarı)</td>
+            <td>@Html.DisplayFor(x => item.Birimler.Birim)</td>
+            <td>% @Html.DisplayFor(x => item.KDV)</td>
+            <td>@Html.DisplayFor(x => item.Tarih)</td>
+            <td>@Html.DisplayFor(x => item.Aciklama)</td>
+
+
+
+        </tr>
+        }
+    </tbody>
+
+</table>
+

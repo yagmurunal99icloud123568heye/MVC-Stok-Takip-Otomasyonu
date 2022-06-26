@@ -1,0 +1,40 @@
+﻿@using MVC_StokTakip.Models.Entity
+@model List<MVC_StokTakip.Models.Entity.Markalar>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>BRAND HOME PAGE</h2>
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <td>ID</td>
+            <td>Categori</td>
+            <td>Brand</td>
+            <td>Explanation</td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(x => item.ID)</td>
+                <td>@Html.DisplayFor(x => item.Kategoriler.Kategori)</td>
+                <td>@Html.DisplayFor(x => item.Marka)</td>
+                <td>@Html.DisplayFor(x => item.Aciklama)</td>
+                <td><a href="/Markalar/SilBilgiGetir/@item.ID" class="btn btn-danger">DELETE</a> </td>
+                @*<td>@Html.ActionLink("Sil Butonu", "Sil", new { id = item.ID }, new { onclick = "return confirm('kayıt silinsin mi ?')" })</td>*@
+                <td><a href="/Markalar/GuncelleBilgiGetir/@item.ID" class="btn btn-warning">UPDATE</a> </td>
+                <td><a href="/Markalar/Urunler/@item.ID" class="btn btn-info">PRODUCTS</a> </td>
+            </tr>
+        }
+    </tbody>
+
+</table>
+<a href="/Markalar/Ekle/" class="btn btn-success" style="margin-top:10px;">ADD BRAND</a>
+
+

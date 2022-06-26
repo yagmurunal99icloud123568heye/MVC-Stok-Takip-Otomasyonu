@@ -1,0 +1,29 @@
+﻿@model MVC_StokTakip.Models.Entity.Birimler
+@{
+    ViewBag.Title = "Ekle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Add A Unıt</h2>
+
+<div class="container">
+    @using (Html.BeginForm("Kaydet", "Birimler", FormMethod.Post))
+    {
+    <div class="form-group">
+        @Html.HiddenFor(x => x.ID)
+        @*@Html.LabelFor(x => x.Birim)*@
+        <label>Unıt</label>
+        @Html.TextBoxFor(x => x.Birim, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @*@Html.LabelFor(x => x.Aciklama)*@
+        <label>Explanation</label>
+        @Html.TextBoxFor(x => x.Aciklama, new { @class = "form-control" })
+    </div>
+                <div class="form-group">
+                    <button class="btn btn-success">ADD UNIT</button>
+                </div>
+            }
+
+        </div>
+

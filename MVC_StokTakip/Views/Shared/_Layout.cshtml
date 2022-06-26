@@ -1,0 +1,173 @@
+﻿
+
+@using MVC_StokTakip.Models.Entity
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="~/LoginScript/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <link href="~/LoginScript/Scriptler/fonts/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+        <link href="~/css/styledanger.css" rel="stylesheet" />
+
+
+
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <!-- Font Awesome icons (free version)-->
+    <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="css/styles.css" rel="stylesheet" />
+</head>
+<body>
+
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">GÜVENLE AL SİTESİ</a>
+            </div>
+            <ul class="nav navbar-nav" style=" display:inline-block;">
+
+                <li class="active"><a href="#">Home</a></li>
+
+                <li>
+                    <a href="/Urunler/Index">
+                        Products
+                        <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+
+                @if (User.IsInRole("A") || User.IsInRole("U2"))
+                {
+                    <li><a href="/Satislar/Index">SALES</a></li>
+                    <li><a href="/Kategoriler/Index">CATEGORİES</a></li>
+                    <li><a href="/Markalar/Index">BRANDS</a></li>
+
+                }
+                @if (User.IsInRole("A") || User.IsInRole("U"))
+                {
+                    <li><a href="/Birimler/Index">UNITS</a></li>
+                }
+
+
+
+
+                <li class="nav-item">
+                    <div class="dropdown" style="color:white">
+                        <a href="#" class="nav-link px-lg-4 dropdown" data-toggle="dropdown" style="margin-top:10px;">
+                            @User.Identity.Name
+                            <i class="fa fa-caret-down" style="color:#ccc" aria-hidden="true"></i>
+                        </a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="/Kullanıcılar/Guncelle">
+                                Update Information
+                            </a>
+                            <a class="dropdown-item" href="/Kullanıcılar/Logout">
+                                Logout
+                            </a>
+
+                        </div>
+
+
+
+                    </div>
+
+                </li>
+
+
+
+
+                <li class="nav-item">
+                    <div style="position:relative">
+                        <a class="nav-link px-4" href="/Sepet/Index">
+
+
+                            <p><img src="~/img/sepet.png" style="width:30px;height:30px;" /></p>
+
+
+                            @{
+                                MVC_StokTakipEntities db = new MVC_StokTakipEntities();
+                                var model = db.Kullanicilar.FirstOrDefault(x => x.KullaniciAdi.Equals(User.Identity.Name));
+                                if (model != null)
+                                {
+                                    int count = db.Sepet.Where(x => x.KullaniciID.Equals(model.ıd)).Count();
+                                    if (count > 0)
+                                    {
+                                        <label class="basket">
+                                            @{Html.RenderAction("TotalCount", "Sepet")
+                                                            ; }
+                                        </label>
+                                    }
+                                    if (count == 0)
+                                    {
+                                        <label class="basket" style="background-color:transparent">
+                                            @{ Html.RenderAction("TotalCount", "Sepet");}
+                                        </label>
+                                    }
+                                }
+
+
+
+                            }
+
+                        </a>
+                    </div>
+
+                </li>
+
+
+            </ul>
+        </div>
+    </nav>
+    <style>
+        .basket {
+            background-color: #ea222f;
+            color: #fff;
+            font-size: 10px;
+            font-weight: 400;
+            position: absolute;
+            height: 16px;
+            left: 25px;
+            width: 16px;
+            text-align: center;
+            line-height: 16px;
+            border-radius: 8px;
+            top: 10px;
+        }
+    </style>
+
+    <div class="container">
+        <div class="container">
+            @RenderBody();
+            @*<h3>Basic Navbar Example</h3>*@
+            <p>Enjoy your shopping</p>
+        </div>
+    </div>
+
+    @* <footer class="card-footer text-faded text-center py-xl-5 navbar-fixed-bottom">
+            <div class="container">
+                <div>
+
+                </div>
+                <p class="m-0-table-sm">Copyright &copy;Stok Takip Otomasyonu</p>
+            </div>
+
+        </footer>
+    *@
+
+    <script src="~/LoginScript/vendor/jquery/jquery-3.2.1.min.js"></script>
+
+    <script src="~/LoginScript/vendor/bootstrap/js/bootstrap.min.js"></script>
+    @RenderSection("scriptdanger", false);
+    @RenderSection("scripts", false);
+
+</body>
+</html>
+

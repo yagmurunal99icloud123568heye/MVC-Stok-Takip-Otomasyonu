@@ -1,0 +1,34 @@
+﻿@using MVC_StokTakip.Models.Entity
+@model List<MVC_StokTakip.Models.Entity.Birimler>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>UNIT LIST</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <td>ID</td>
+            <td>UNIT</td>
+            <td>DESCRIPTION</td>
+            <td>DELETE</td>
+            <td>UPDATE</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.ID</td>
+                <td>@item.Birim</td>
+                <td>@item.Aciklama</td>
+                <td><a href="/Birimler/SilBilgiGetir/@item.ID" class="btn btn-danger">DELETE</a> </td>
+                <td><a href="/Birimler/GuncelleBilgiGetir/@item.ID" class="btn btn-warning">UPDATE</a> </td>
+            </tr>
+        }
+    </tbody>
+
+</table>
+<a href="/Birimler/Ekle/" class="btn btn-success" style="margin-top:10px;">ADD UNIT</a>
+

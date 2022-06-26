@@ -1,0 +1,25 @@
+﻿@model List<MVC_StokTakip.Models.Entity.Markalar>
+@{
+    ViewBag.Title = "Markalar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@ViewBag.viewkategori category</h2>
+
+<table class="table table-bordered table-striped">
+    <tr>
+        <th>ID</th>
+        <th>Brand</th>
+        <th>Explanation</th>
+    </tr>
+    @foreach(var item in Model)
+            {
+                <tr>
+                    <th>@item.ID</th>
+                    <td>@item.Marka</td>
+                    <td>@item.Aciklama</td>
+                </tr>
+            }
+
+</table>
+

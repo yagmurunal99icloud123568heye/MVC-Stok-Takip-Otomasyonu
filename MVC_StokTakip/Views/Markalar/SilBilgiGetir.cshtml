@@ -1,0 +1,32 @@
+﻿@model MVC_StokTakip.Models.Entity.Markalar
+@{
+    ViewBag.Title = "SilBilgiGetir";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@*<h2>Marka SilBilgiGetir</h2>*@
+<h3>Unregister?</h3>
+<div class="container">
+    @using (Html.BeginForm("Sil", "Markalar"))
+    {
+        @Html.HiddenFor(x => x.ID)
+        <div class="form-group">
+            <b>@Html.LabelFor(x => x.Kategoriler.Kategori):</b>
+            @Html.DisplayFor(x => x.Kategoriler.Kategori)
+        </div>
+        <div class="form-group">
+            <b>@Html.LabelFor(x => x.Marka):</b>
+            @Html.DisplayFor(x => x.Marka)
+        </div>
+        <div class="form-group">
+            <b>@Html.LabelFor(x => x.Aciklama)</b>
+
+
+            @Html.DisplayFor(x => x.Aciklama)
+
+        </div>
+        <div><button class="btn btn-danger">DELETE</button><a href="/Markalar/Index">HOME PAGE</a></div>
+
+    }
+
+</div>

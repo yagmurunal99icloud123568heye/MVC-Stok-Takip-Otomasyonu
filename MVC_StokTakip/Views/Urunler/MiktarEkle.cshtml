@@ -1,0 +1,28 @@
+﻿@model MVC_StokTakip.Models.Entity.Urunler
+@{
+    ViewBag.Title = "MiktarEkle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Add Amount</h2>
+<div class="container">
+    @using (Html.BeginForm("MiktarEkle", "Urunler", FormMethod.Post))
+    {
+        <div class="form-group">
+            @Html.LabelFor(x => x.ID)
+            @Html.TextBoxFor(x => x.ID, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(x => x.Miktarı)
+            @Html.TextBoxFor(x => x.Miktarı, new { @class = "form-control" })
+      
+   
+            </div>
+
+            <div>
+                <button class="btn btn-secondary">Add Amount</button>
+            </div>
+    }
+
+</div>
+

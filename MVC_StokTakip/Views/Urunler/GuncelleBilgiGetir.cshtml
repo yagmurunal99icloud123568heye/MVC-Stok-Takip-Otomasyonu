@@ -1,0 +1,118 @@
+﻿@model MVC_StokTakip.Models.Entity.Urunler
+@{
+    ViewBag.Title = "GuncelleBilgiGetir";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Product Update Page</h2>
+<div class="container">
+    @using (Html.BeginForm("Guncelle", "Urunler", FormMethod.Post))
+    {
+        @Html.HiddenFor(x => x.ID)
+    <div class="form-group">
+        <label>Categories</label>
+        @*@Html.LabelFor(x => x.Kategoriler.Kategori)*@
+        @Html.DropDownListFor(x => x.KategoriID, Model.KategoriListesi, "Seçiniz", new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.KategoriID, "", new { @class = "text-danger" })
+    </div>
+    <div class="form-group">
+        <label>Brands</label>
+        @*@Html.LabelFor(x => x.Markalar.Marka)*@
+        @Html.DropDownListFor(x => x.MarkaID, Model.MarkaListesi, "Seçiniz", new { @class = "form-control" })
+
+    </div>
+        <div class="form-group">
+            @Html.LabelFor(x => x.BarkodNo)
+            @Html.TextBoxFor(x => x.BarkodNo, new { @class = "form-control" })
+
+        </div>
+        <div class="form-group">
+            <label>Product Name</label>
+            @*@Html.LabelFor(x => x.UrunAdi)*@
+            @Html.TextBoxFor(x => x.UrunAdi, new { @class = "form-control" })
+
+        </div>
+
+
+        <div class="form-group">
+            <label>Purchase price</label>
+            @*@Html.LabelFor(x => x.AlisFiyati)*@
+            @Html.TextBoxFor(x => x.AlisFiyati, new { @class = "form-control" })
+
+
+        </div>
+        <div class="form-group">
+            <label>Sale price</label>
+            @*@Html.LabelFor(x => x.SatisFiyati)*@
+            @Html.TextBoxFor(x => x.SatisFiyati, new { @class = "form-control" })
+
+
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(x => x.KDV)
+            @Html.TextBoxFor(x => x.KDV, new { @class = "form-control" })
+
+
+        </div>
+        <div class="form-group">
+            <label>Unıts</label>
+            @*@Html.LabelFor(x => x.Birimler.Birim)*@
+            @Html.DropDownListFor(x => x.BirimID, Model.BirimListesi, "Seçiniz", new { @class = "form-control" })
+
+
+        </div>
+        <div class="form-group">
+            <label>Date</label>
+            @* @Html.LabelFor(x => x.Tarih)*@
+            @Html.TextBoxFor(x => x.Tarih, new { @class = "form-control", type = "date" })
+            @Html.ValidationMessageFor(x => x.Tarih, "", new { @class = "text-danger" })
+
+
+        </div>
+        <div class="form-group">
+            <label>Explanation</label>
+            @*@Html.LabelFor(x => x.Aciklama)*@
+            @Html.TextBoxFor(x => x.Aciklama, new { @class = "form-control" })
+
+
+        </div>
+        <div><button class="btn btn-success">UPDATE PRODUCT</button></div>
+
+
+    }
+</div>
+
+    @section scripts
+        {
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $("#KategoriID").change(function () {
+                    var ID = $("#KategoriID").val();
+                    var markalist = $("MarkaID")
+                    markalist.empty();
+                    $.ajax({
+                        url: '/Urunler/GetMarka',
+                        type: 'POST',
+                        dataType: 'json',
+                        data: { 'id2': ID },
+                        success: function (data) {
+                            $.each(data, function (index, position) {
+                                markalist.append('<option value=' + option.Value + '>' + option.Text + '<option)')
+                            });
+
+                        }
+                    });
+                });
+            });
+
+        </script>
+
+    }
+    @section scriptdanger{
+
+        <script src="~/Scripts/jquery.validate.min.js"></script>
+
+        <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    }
+
+

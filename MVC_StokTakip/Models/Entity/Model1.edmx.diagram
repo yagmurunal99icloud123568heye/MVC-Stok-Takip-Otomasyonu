@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="6de05207fb4a4544b3d4532859d63742" Name="Diagram1">
+        <EntityTypeShape EntityType="MVC_StokTakipModel.Birimler" Width="1.5" PointX="3" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="MVC_StokTakipModel.Kategoriler" Width="1.5" PointX="0.75" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="MVC_StokTakipModel.Kullanicilar" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MVC_StokTakipModel.kullaniciRolleri" Width="1.5" PointX="7.5" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="MVC_StokTakipModel.Markalar" Width="1.5" PointX="3" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="MVC_StokTakipModel.Musteriler" Width="1.5" PointX="0.75" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="MVC_StokTakipModel.Roller" Width="1.5" PointX="5.25" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MVC_StokTakipModel.Satislar" Width="1.5" PointX="7.5" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="MVC_StokTakipModel.Sepet" Width="1.5" PointX="10.5" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MVC_StokTakipModel.sysdiagrams" Width="1.5" PointX="7.75" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="MVC_StokTakipModel.Urunler" Width="1.5" PointX="5.25" PointY="4.875" IsExpanded="true" />
+        <AssociationConnector Association="MVC_StokTakipModel.FK_Urunler_Birimler" ManuallyRouted="false" />
+        <AssociationConnector Association="MVC_StokTakipModel.FK_Markalar_Kategoriler1" ManuallyRouted="false" />
+        <AssociationConnector Association="MVC_StokTakipModel.FK_Urunler_Kategoriler" ManuallyRouted="false" />
+        <AssociationConnector Association="MVC_StokTakipModel.FK_KullaniciRolleri_Kullanicilar" ManuallyRouted="false" />
+        <AssociationConnector Association="MVC_StokTakipModel.FK_Satislar_Kullanicilar" ManuallyRouted="false" />
+        <AssociationConnector Association="MVC_StokTakipModel.FK_Sepet_Kullanicilar" ManuallyRouted="false" />
+        <AssociationConnector Association="MVC_StokTakipModel.FK_KullaniciRolleri_Roller" ManuallyRouted="false" />
+        <AssociationConnector Association="MVC_StokTakipModel.FK_Urunler_Markalar" ManuallyRouted="false" />
+        <AssociationConnector Association="MVC_StokTakipModel.FK_Urunler_Markalar1" ManuallyRouted="false" />
+        <AssociationConnector Association="MVC_StokTakipModel.FK_Satislar_Urunler" ManuallyRouted="false" />
+        <AssociationConnector Association="MVC_StokTakipModel.FK_Satislar_Urunler1" ManuallyRouted="false" />
+        <AssociationConnector Association="MVC_StokTakipModel.FK_Sepet_Urunler" ManuallyRouted="false" />
+        <AssociationConnector Association="MVC_StokTakipModel.FK_Sepet_Urunler2" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

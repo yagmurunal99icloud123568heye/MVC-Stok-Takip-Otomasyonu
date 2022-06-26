@@ -1,0 +1,41 @@
+﻿@using MVC_StokTakip.Models.Entity
+@model List<MVC_StokTakip.Models.Entity.Kategoriler>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Category Home</h2>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <td>ID</td>
+            <td>Category</td>
+            <td>Explanation</td>
+            <td>DELETE</td>
+            <td>UPDATE</td>
+            <td>Brands</td>
+            <td>Products</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach( var item in Model)
+            {
+        <tr>
+            <td>@item.ID</td>
+            <td>@item.Kategori</td>
+            <td>@item.Aciklama</td>
+            <td><a href="/Kategoriler/SilBilgiGetir/@item.ID" class="btn btn-danger">Delete</a> </td>
+            <td><a href="/Kategoriler/GuncelleBilgiGetir/@item.ID" class="btn btn-warning">Update</a> </td>
+            <td><a href="/Kategoriler/Markalar/@item.ID" class="btn btn-secondary">Brands</a> </td>
+            <td><a href="/Kategoriler/Urunler/@item.ID" class="btn btn-secondary">Products</a> </td>
+        </tr>
+            }
+    </tbody>
+
+</table>
+@if (User.IsInRole("A") || User.IsInRole("U")) { 
+<a href="/Kategoriler/Ekle/" class="btn btn-success" style="margin-top:10px;">ADD CATEGORY</a>
+}
+
+

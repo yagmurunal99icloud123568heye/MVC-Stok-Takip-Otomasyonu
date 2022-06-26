@@ -1,0 +1,31 @@
+﻿@model MVC_StokTakip.Models.Entity.Birimler
+@{
+    ViewBag.Title = "GuncelleBilgiGetir";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Unit Update Page</h2>
+
+<div class="container">
+    @*<form action="/">*@
+    @using (Html.BeginForm("Guncelle", "Birimler"))
+    {
+        @*<div class="form-group">
+                <b>ID</b>
+                @Html.TextBoxFor(x => x.ID, new { @class = "form-control" })
+            </div>
+        *@
+        @Html.HiddenFor(x => x.ID)
+        <div class="form-group">
+            <b>UNIT</b>
+            @Html.TextBoxFor(x => x.Birim, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <b>EXPLANATION</b>
+            @Html.TextBoxFor(x => x.Aciklama, new { @class = "form-control" })
+        </div>
+        <div><button class="btn btn-primary">UPDATE UNIT</button></div>
+
+    }
+    @* </form>*@
+</div>
